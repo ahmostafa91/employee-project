@@ -14,6 +14,18 @@ export class CreateEmployeeComponent implements OnInit {
   dateConfig: Partial<BsDatepickerConfig>; // to make copy of object to custom the props for date style table
   dateOfBirth: Date = new Date(2019, 0, 15); // to set default date
   imageShow = false; // to control the image show by the ngIf
+  employee: Employee = {
+    id: null,
+    name: null,
+    gender: null,
+    email: null,
+    phoneNumber: null,
+    contactPreferences: null,
+    dataOfBirth: null,
+    department: null,
+    isActive: null,
+    photoPath: null,
+  };
 
   // gender = 'male'; // to check the male radio button by default
   // IsActive = true; // to make the check box checked by default
@@ -41,7 +53,11 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit() {
   }
-  saveEmployee(emForm: NgForm): void {
+  /*saveEmployee(emForm: NgForm): void {
     console.log(emForm.value);
+  }*/
+
+  saveEmployee(newEmployee: Employee): void {
+    console.log(newEmployee);
   }
 }
