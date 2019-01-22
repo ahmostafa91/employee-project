@@ -5,9 +5,10 @@
     </div>
     <div class="panel-body">
       <!--Full Name-->
-      <div class="form-group">
-        <label for="fullName">Full Name</label>
-        <input class="form-control" name="fn" [(ngModel)]="fullN" id="fullName" type="text" />
+      <div class="form-group" [class.has-error] = "fullNameCtrl.invalid && fullNameCtrl.touched" [class.has-success] = "fullNameCtrl.valid">
+        <label class="control-label" for="fullName">Full Name</label>
+        <input class="form-control" name="fn" [(ngModel)]="fullN" id="fullName" type="text" required #fullNameCtrl = "ngModel" />
+        <span class="help-block" *ngIf = "fullNameCtrl.invalid && fullNameCtrl.touched">Full name is required</span>
       </div>
       <!--Email-->
       <div class="form-group">
@@ -95,7 +96,7 @@
       </div>
     </div>
     <div class="panel-footer">
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary" [disabled] = "eModule.invalid">Save</button>
     </div>
   </div>
 </form>
