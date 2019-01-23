@@ -11,17 +11,17 @@
         <span class="help-block" *ngIf = "name.invalid && name.touched">Full name is required</span>
       </div>
       <!--Email-->
-      <div class="form-group" [class.has-error] = "email.invalid && email.touched" [class.has-success] = "email.valid">
+      <div class="form-group" [class.has-error] = "email.invalid">
         <label class="control-label" for="email">Email</label>
-        <input class="form-control" name="em" [(ngModel)]="employee.email" id="email" type="email" required #email = "ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" />
-        <span class="help-block" *ngIf = "email.errors?.required && email.touched">Email is required</span>
-        <span class="help-block" *ngIf = "email.errors?.pattern && email.touched">Email is invalid</span>
+        <input class="form-control" name="em" [(ngModel)]="employee.email" id="email" type="email" [required] = "contactPref.value == 'email'" #email = "ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" />
+        <span class="help-block" *ngIf = "email.errors?.required">Email is required</span>
+        <span class="help-block" *ngIf = "email.errors?.pattern">Email is invalid</span>
       </div>
       <!--Phone Number-->
-      <div class="form-group" [class.has-error] = "phoneNum.invalid && phoneNum.touched" [class.has-success] = "phoneNum.valid">
+      <div class="form-group" [class.has-error] = "phoneNum.invalid">
         <label class="control-label" for="phNum">Phone Number</label>
-        <input class="form-control" name="phone" [(ngModel)]="employee.phoneN" id="phNum" type="tel" required #phoneNum = "ngModel" />
-        <span class="help-block" *ngIf = "phoneNum.invalid && phoneNum.touched">Phone Number is required</span>
+        <input class="form-control" name="phone" [(ngModel)]="employee.phoneN" id="phNum" type="tel" [required] = "contactPref.value == 'phone'" #phoneNum = "ngModel" />
+        <span class="help-block" *ngIf = "phoneNum.invalid">Phone Number is required</span>
       </div>
       <!--Gender-->
       <div class="form-group" [class.has-error] = "gender.touched && gender.invalid" [class.has-success] = "gender.valid">
