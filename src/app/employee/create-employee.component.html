@@ -11,9 +11,11 @@
         <span class="help-block" *ngIf = "name.invalid && name.touched">Full name is required</span>
       </div>
       <!--Email-->
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" name="em" [(ngModel)]="employee.email" id="email" type="email" />
+      <div class="form-group" [class.has-error] = "email.invalid && email.touched" [class.has-success] = "email.valid">
+        <label class="control-label" for="email">Email</label>
+        <input class="form-control" name="em" [(ngModel)]="employee.email" id="email" type="email" required #email = "ngModel" email />
+        <span class="help-block" *ngIf = "email.errors?.required && email.touched">Email is required</span>
+        <span class="help-block" *ngIf = "email.errors?.email && email.touched">Email is invalid</span>
       </div>
       <!--Phone Number-->
       <div class="form-group">
