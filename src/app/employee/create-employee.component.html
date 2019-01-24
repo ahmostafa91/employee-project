@@ -63,15 +63,17 @@
         </div>
       </div>
       <!--department dropbox-->
-      <div class="form-group">
-        <label for="department">
+      <div class="form-group" [class.has-error] = "departmentM.touched && departmentM.invalid">
+        <label class="control-label" for="department">
           Department
         </label>
-        <select class="form-control" id="department" name="department" [(ngModel)]="employee.department">
+        <select class="form-control" id="department" name="department" [(ngModel)]="employee.department" required #departmentM = "ngModel">
+          <option [ngValue] = "null">Please Select Department</option>
           <option *ngFor="let d of departments" [value]="d.id">
             {{ d.name }}
           </option>
         </select>
+        <span class="help-block" *ngIf = "departmentM.touched && departmentM.invalid">Department is required</span>
       </div>
       <!--date-->
       <div class="row">
