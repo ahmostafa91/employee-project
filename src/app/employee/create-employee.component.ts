@@ -3,6 +3,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Department } from './../models/department.model';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Employee } from '../models/employee.model';
+import { EmployeeService } from './employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-employee',
@@ -12,7 +14,7 @@ import { Employee } from '../models/employee.model';
 export class CreateEmployeeComponent implements OnInit {
 
   dateConfig: Partial<BsDatepickerConfig>; // to make copy of object to custom the props for date style table
-  dateOfBirth: Date = new Date(2019, 0, 15); // to set default date
+  // dateOfBirth: Date = new Date(2019, 0, 15); // to set default date
   imageShow = false; // to control the image show by the ngIf
   employee: Employee = {
     id: null,
@@ -37,13 +39,13 @@ export class CreateEmployeeComponent implements OnInit {
     {id: 4, name: 'Front-End Developer'}
   ];
 
-  constructor() {
+  constructor(private _employeeService: EmployeeService, private _router: Router) {
     // set date table configs style ngx-bootstrap date table
     this.dateConfig = Object.assign({}, {
     containerClass: 'theme-dark-blue',
-    minDate: new Date(2019, 0, 1),
-    maxDate: new Date(2019, 11, 31),
-    dateInputFormat: 'DD/MM/YYYY'
+    // minDate: new Date(2019, 0, 1),
+    // maxDate: new Date(2019, 11, 31),
+    // dateInputFormat: 'DD/MM/YYYY'
     });
   }
 
@@ -57,7 +59,12 @@ export class CreateEmployeeComponent implements OnInit {
     console.log(emForm.value);
   }*/
 
-  saveEmployee(newEmployee: Employee): void {
+  /*saveEmployee(newEmployee: Employee): void {
     console.log(newEmployee);
+  }*/
+
+  saveEmployee(): void {
+    this._employeeService.save(this.employee);
+    this._router.navigate(['list']);
   }
 }
