@@ -11,6 +11,7 @@ import { from } from 'rxjs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ConfirmEqualValidatorDirective } from './share/confirm-equal-validator-directive';
 import { EmployeeService } from './employee/employee.service';
+import { SelectRequiredValidatorDirective } from './share/selectr-equired-validator.directive';
 
 const appRoutes: Routes = [
   {path: 'list', component: ListEmployeesComponent},
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
     AppComponent,
     ListEmployeesComponent,
     CreateEmployeeComponent,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective,
+    SelectRequiredValidatorDirective
   ],
   imports: [
     BrowserModule,

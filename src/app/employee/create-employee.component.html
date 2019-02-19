@@ -67,8 +67,8 @@
         <label class="control-label" for="department">
           Department
         </label>
-        <select class="form-control" id="department" name="department" [(ngModel)]="employee.department" required #departmentM = "ngModel">
-          <option [ngValue] = "null">Please Select Department</option>
+        <select appSelectValidator="select" class="form-control" id="department" name="department" [(ngModel)]="employee.department" required #departmentM = "ngModel">
+          <option value = "select">Please Select Department</option>
           <option *ngFor="let d of departments" [value]="d.id">
             {{ d.name }}
           </option>
