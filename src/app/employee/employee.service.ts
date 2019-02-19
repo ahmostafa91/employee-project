@@ -14,7 +14,7 @@ export class EmployeeService {
       contactPreferences: 'Email',
       email: 'ahmed@yahoo.com',
       dataOfBirth: new Date('5/3/1991'),
-      department: 'Front-End Developer',
+      department: '3',
       isActive: true,
       photoPath: 'assets/images/33.jpg'
     },
@@ -25,7 +25,7 @@ export class EmployeeService {
       contactPreferences: 'Email',
       email: 'ahmed@yahoo.com2',
       dataOfBirth: new Date('10/25/1991'),
-      department: 'Front-End Developer2',
+      department: '1',
       isActive: true,
       photoPath: 'assets/images/33.jpg'
     },
@@ -36,7 +36,7 @@ export class EmployeeService {
       contactPreferences: 'Email',
       email: 'ahmed@yahoo.com3',
       dataOfBirth: new Date('10/25/1991'),
-      department: 'Front-End Developer3',
+      department: '2',
       isActive: true,
       photoPath: 'assets/images/33.jpg'
     }
