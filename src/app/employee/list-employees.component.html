@@ -3,6 +3,6 @@
 </h1>--> <!--to display the data from child-->
 
 <div *ngFor = "let i of employees">
-    <!--{{ i | json }}-->
+    <!--{{ i | json }}--> <!--for debug-->
     <app-display-employee [employeeDis] = "i"></app-display-employee> <!--add  (notify) = "fromChild($event)" as attr to display the data from child-->
 </div>

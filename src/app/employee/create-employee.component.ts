@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Department } from './../models/department.model';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent implements OnInit {
+
+  @ViewChild('eModule') public createEmployeeGuard: NgForm; // public prop to check the form with guard if dirty or not
 
   dateConfig: Partial<BsDatepickerConfig>; // to make copy of object to custom the props for date style table
   // dateOfBirth: Date = new Date(2019, 0, 15); // to set default date
