@@ -11,10 +11,15 @@ import { from } from 'rxjs';
 export class ListEmployeesComponent implements OnInit {
 
   employees: Employee[];
+  // dataFromChild: string; // to get data from child
+
   constructor(private _employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.employees = this._employeeService.getEmployee();
   }
 
+  /*fromChild(dataEvent: string) {
+    this.dataFromChild = dataEvent;
+  }*/ // to get data from child
 }

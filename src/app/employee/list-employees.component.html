@@ -1,74 +1,8 @@
-<div class="panel panel-primary" *ngFor = "let i of employees">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{i.name}}</h3>
-  </div>
-  <div class="panel-body">
-    <div class="col-xs-10">
-      <div class="row vAlign">
-        <div class="col-xs-4">
-          <img class="imageSize" [src]="i.photoPath" />
-        </div>
-        <div class="col-xs-8">
-          <div class="row">
-            <div class="col-xs-6">
-              Gender
-            </div>
-            <div class="col-xs-6">
-              : {{i.gender}}
-            </div>
-          </div>
-          <!--2-->
-          <div class="row">
-            <div class="col-xs-6">
-              name
-            </div>
-            <div class="col-xs-6">
-              : {{i.name}}
-            </div>
-          </div>
-          <!--3-->
-          <div class="row">
-            <div class="col-xs-6">
-              email
-            </div>
-            <div class="col-xs-6">
-              : {{i.email}}
-            </div>
-          </div>
-          <!--4-->
-          <div class="row">
-            <div class="col-xs-6">
-              department
-            </div>
-            <div class="col-xs-6" [ngSwitch]="i.department">
-              : 
-              <span *ngSwitchCase="1">Help Desk</span>
-              <span *ngSwitchCase="2">IT</span>
-              <span *ngSwitchCase="3">HR</span>
-              <span *ngSwitchCase="4">Front-End Developer</span>
-              <span *ngSwitchDefault>N/A</span>
-            </div>
-          </div>
-          <!--5-->
-          <div class="row">
-            <div class="col-xs-6">
-              data of birth
-            </div>
-            <div class="col-xs-6">
-              : {{i.dataOfBirth}}
-            </div>
-          </div>
-          <!--6-->
-          <div class="row">
-            <div class="col-xs-6">
-              employee is active
-            </div>
-            <div class="col-xs-6">
-              : {{i.isActive}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--<h1 *ngIf = "dataFromChild">
+    {{ dataFromChild?.name + ' ' + '(' + dataFromChild?.email + ')' }}
+</h1>--> <!--to display the data from child-->
+
+<div *ngFor = "let i of employees">
+    <!--{{ i | json }}-->
+    <app-display-employee [employeeDis] = "i"></app-display-employee> <!--add  (notify) = "fromChild($event)" as attr to display the data from child-->
 </div>
