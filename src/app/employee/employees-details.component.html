@@ -1,3 +1,77 @@
-<p>
-  employees-details works!
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{employee.name}}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-xs-10">
+      <div class="row vAlign">
+        <div class="col-xs-4">
+          <img class="imageSize" [src]="employee.photoPath" />
+        </div>
+        <div class="col-xs-8">
+          <div class="row">
+            <div class="col-xs-6">
+              Gender
+            </div>
+            <div class="col-xs-6">
+              : {{employee.gender}}
+            </div>
+          </div>
+          <!--2-->
+          <div class="row">
+            <div class="col-xs-6">
+              name
+            </div>
+            <div class="col-xs-6">
+              : {{employee.name}}
+            </div>
+          </div>
+          <!--3-->
+          <div class="row">
+            <div class="col-xs-6">
+              email
+            </div>
+            <div class="col-xs-6">
+              : {{employee.email}}
+            </div>
+          </div>
+          <!--4-->
+          <div class="row">
+            <div class="col-xs-6">
+              department
+            </div>
+            <div class="col-xs-6" [ngSwitch]="employee.department">
+              : 
+              <span *ngSwitchCase="1">Help Desk</span>
+              <span *ngSwitchCase="2">IT</span>
+              <span *ngSwitchCase="3">HR</span>
+              <span *ngSwitchCase="4">Front-End Developer</span>
+              <span *ngSwitchDefault>N/A</span>
+            </div>
+          </div>
+          <!--5-->
+          <div class="row">
+            <div class="col-xs-6">
+              data of birth
+            </div>
+            <div class="col-xs-6">
+              : {{employee.dataOfBirth}}
+            </div>
+          </div>
+          <!--6-->
+          <div class="row">
+            <div class="col-xs-6">
+              employee is active
+            </div>
+            <div class="col-xs-6">
+              : {{employee.isActive}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a class="btn btn-primary" routerLink="/list">Back To List</a>
+  </div>
+</div>

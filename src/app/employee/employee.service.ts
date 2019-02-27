@@ -46,6 +46,10 @@ export class EmployeeService {
     return this.listEmployee;
   }
 
+  getEmployeeById(_id: number): Employee {
+     return this.listEmployee.find(e => e.id === _id); // find the employee by the id that get from the ActivetedRoute from link
+  }
+
   save(employee: Employee) {
     this.listEmployee.push(employee);
   }
