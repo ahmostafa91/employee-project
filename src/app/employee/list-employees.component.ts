@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './../models/employee.model';
 import { EmployeeService } from './employee.service';
-import { from } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   // selector: 'app-list-employees',
@@ -13,10 +13,14 @@ export class ListEmployeesComponent implements OnInit {
   employees: Employee[];
   // dataFromChild: string; // to get data from child
 
-  constructor(private _employeeService: EmployeeService) { }
+  constructor(private _employeeService: EmployeeService, private _router: Router) { }
 
   ngOnInit() {
     this.employees = this._employeeService.getEmployee();
+  }
+
+  onClick(empId: number) {
+    this._router.navigate(['/employee', empId]);
   }
 
   /*fromChild(dataEvent: string) {

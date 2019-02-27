@@ -8,8 +8,11 @@
     <li routerLinkActive = "active">
       <a routerLink="list">List</a>
     </li>
-    <li routerLinkActive = "active">
+    <li routerLinkActive = "active" (click) = "changeSub()">
       <a routerLink="create">Create</a>
+    </li>
+    <li routerLinkActive = "active">
+      <a [routerLink]="['/employee', 2]">hard coded employee 2</a>
     </li>
   </ul>
 </nav>

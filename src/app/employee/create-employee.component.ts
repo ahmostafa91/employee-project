@@ -5,6 +5,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Employee } from '../models/employee.model';
 import { EmployeeService } from './employee.service';
 import { Router } from '@angular/router';
+import { CreateEmployeeDeactivateGuardService } from '../guard/create-employee-deactivate-guard.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -41,7 +42,7 @@ export class CreateEmployeeComponent implements OnInit {
     {id: 4, name: 'Front-End Developer'}
   ];
 
-  constructor(private _employeeService: EmployeeService, private _router: Router) {
+  constructor(private _employeeService: EmployeeService, private _router: Router, private guard: CreateEmployeeDeactivateGuardService) {
     // set date table configs style ngx-bootstrap date table
     this.dateConfig = Object.assign({}, {
     containerClass: 'theme-dark-blue',
@@ -66,7 +67,10 @@ export class CreateEmployeeComponent implements OnInit {
   }*/
 
   saveEmployee(): void {
-    this._employeeService.save(this.employee);
-    this._router.navigate(['list']);
+    if (!this.guard.checkSub) {
+      this._employeeService.save(this.employee);
+      this.guard.checkSub = true;
+      this._router.navigate(['list']);
+    }
   }
 }

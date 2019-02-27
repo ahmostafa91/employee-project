@@ -1,8 +1,13 @@
 <!--<h1 *ngIf = "dataFromChild">
     {{ dataFromChild?.name + ' ' + '(' + dataFromChild?.email + ')' }}
-</h1>--> <!--to display the data from child-->
+</h1>-->
+<!--to display the data from child-->
 
-<div *ngFor = "let i of employees">
-    <!--{{ i | json }}--> <!--for debug-->
-    <app-display-employee [employeeDis] = "i"></app-display-employee> <!--add  (notify) = "fromChild($event)" as attr to display the data from child-->
+<div *ngFor="let i of employees">
+  <!--{{ i | json }}-->
+  <!--for debug-->
+  <div (click)="onClick(i.id)">
+    <app-display-employee [employeeDis]="i"></app-display-employee>
+    <!--add  (notify) = "fromChild($event)" as attr to display the data from child-->
+  </div>
 </div>

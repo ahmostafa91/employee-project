@@ -14,10 +14,12 @@ import { EmployeeService } from './employee/employee.service';
 import { SelectRequiredValidatorDirective } from './share/selectr-equired-validator.directive';
 import { DisplayEmployeeComponent } from './employee/display-employee.component';
 import { CreateEmployeeDeactivateGuardService } from './guard/create-employee-deactivate-guard.service';
+import { EmployeesDetailsComponent } from './employee/employees-details.component';
 
 const appRoutes: Routes = [
   {path: 'list', component: ListEmployeesComponent},
   {path: 'create', component: CreateEmployeeComponent, canDeactivate: [CreateEmployeeDeactivateGuardService]},
+  {path: 'employee/:id', component: EmployeesDetailsComponent},
   {path: '', redirectTo: '/list', pathMatch: 'full'}
 ];
 
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     CreateEmployeeComponent,
     ConfirmEqualValidatorDirective,
     SelectRequiredValidatorDirective,
-    DisplayEmployeeComponent
+    DisplayEmployeeComponent,
+    EmployeesDetailsComponent
   ],
   imports: [
     BrowserModule,

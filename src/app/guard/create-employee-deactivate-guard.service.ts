@@ -6,12 +6,15 @@ import { CreateEmployeeComponent } from './../employee/create-employee.component
 
 export class CreateEmployeeDeactivateGuardService implements CanDeactivate<CreateEmployeeComponent> {
 
+  checkSub = false;
+
   canDeactivate(component: CreateEmployeeComponent): boolean {
 
-    if (component.createEmployeeGuard.dirty) {
+    if (component.createEmployeeGuard.dirty && this.checkSub === false) {
       return confirm('Are You Sure You Want To Discard Your Change?');
     }
 
     return true;
   }
+
 }
