@@ -67,10 +67,10 @@ export class CreateEmployeeComponent implements OnInit {
   }*/
 
   saveEmployee(): void {
-    if (!this.guard.checkSub) {
-      this._employeeService.save(this.employee);
-      this.guard.checkSub = true;
+      const newEmployee: Employee = Object.assign({}, this.employee);
+      this._employeeService.save(newEmployee); // this will make the reset clear the original but the copy from assign will be subited
+      // tslint:disable-next-line:max-line-length
+      this.createEmployeeGuard.reset(); // to reset the form after the submit and stop the guard & there is other ways i can pass the temp var as param or bind the temp var with the submit action
       this._router.navigate(['list']);
-    }
   }
 }

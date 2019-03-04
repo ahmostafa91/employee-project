@@ -11,7 +11,7 @@ export class AppComponent {
 
   constructor(private guard: CreateEmployeeDeactivateGuardService) {}
 
-  changeSub() {
+  /*changeSub() {
     this.guard.checkSub = false;
-  }
+  }*/ // for change this prop to first idea to stop the guard while submit
 }
