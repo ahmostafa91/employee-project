@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ListEmployeesComponent implements OnInit {
 
   employees: Employee[];
+  searchTearm: string; // take the name from search input
   // dataFromChild: string; // to get data from child
 
   constructor(private _employeeService: EmployeeService, private _router: Router) { }

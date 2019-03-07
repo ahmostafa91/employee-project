@@ -15,6 +15,7 @@ import { SelectRequiredValidatorDirective } from './share/selectr-equired-valida
 import { DisplayEmployeeComponent } from './employee/display-employee.component';
 import { CreateEmployeeDeactivateGuardService } from './guard/create-employee-deactivate-guard.service';
 import { EmployeesDetailsComponent } from './employee/employees-details.component';
+import { SearchPipe } from './pipe/search.pipe';
 
 const appRoutes: Routes = [
   {path: 'list', component: ListEmployeesComponent},
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     ConfirmEqualValidatorDirective,
     SelectRequiredValidatorDirective,
     DisplayEmployeeComponent,
-    EmployeesDetailsComponent
+    EmployeesDetailsComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

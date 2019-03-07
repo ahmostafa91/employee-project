@@ -3,9 +3,12 @@
 </h1>-->
 <!--to display the data from child-->
 
-<div *ngFor="let i of employees">
-  <!--{{ i | json }}-->
-  <!--for debug-->
+<div class="form-group">
+  <input type="text" class="form-control" style="width: 100%" [(ngModel)]= "searchTearm" placeholder="Search By Name" />
+</div>
+
+<div *ngFor="let i of employees | search:searchTearm">
+  <!--{{ i | json }}--> <!--for debug-->
   <div (click)="onClick(i.id)">
     <app-display-employee [employeeDis]="i"></app-display-employee>
     <!--add  (notify) = "fromChild($event)" as attr to display the data from child-->
