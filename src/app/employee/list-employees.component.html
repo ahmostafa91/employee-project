@@ -4,10 +4,10 @@
 <!--to display the data from child-->
 
 <div class="form-group">
-  <input type="text" class="form-control" style="width: 100%" [(ngModel)]= "searchTearm" placeholder="Search By Name" />
+  <input type="text" class="form-control" style="width: 100%" [(ngModel)]= "searchTerm" placeholder="Search By Name" />
 </div>
 
-<div *ngFor="let i of employees | search:searchTearm">
+<div *ngFor="let i of filteredEmployees">
   <!--{{ i | json }}--> <!--for debug-->
   <div (click)="onClick(i.id)">
     <app-display-employee [employeeDis]="i"></app-display-employee>
